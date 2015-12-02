@@ -27,10 +27,12 @@ public class ShowEvent implements ActionListener {
         JPanel editButtons = new JPanel();
         JButton delete = new JButton("Usuń zadanie");      
         JButton editStatus = new JButton("Zakończ zadanie");
+        private final ArrayList<Event> eventContent;
         
-        ShowEvent(Event event, JPanel displayPanel){
+        ShowEvent(Event event, JPanel displayPanel, ArrayList<Event> eventContent){
             this.displayPanel = displayPanel;
             this.event = event;
+            this.eventContent = eventContent;
         }    
             
 
@@ -77,11 +79,11 @@ public class ShowEvent implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             SaveEventToFile reader = new SaveEventToFile();
-            ArrayList<Event> eventContent = reader.readEventsFromFile();
-            System.out.println(eventContent.get(1).getTite());
             
-            
-            System.out.println(event.getTite());
+            System.out.println();
+            System.out.println(eventContent);
+            System.out.println(event);
+            eventContent.remove(event);
             reader.writeEventsToFile(eventContent);
             DisplayEvents refresh = new DisplayEvents(displayPanel);
             

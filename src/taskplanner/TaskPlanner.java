@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Michał
+ * @author Mateusz Borysewicz
  */
 public class TaskPlanner extends javax.swing.JFrame {
 

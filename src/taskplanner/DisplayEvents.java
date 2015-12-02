@@ -19,7 +19,6 @@ public class DisplayEvents {
     
     DisplayEvents(JPanel displayPanel)
     {
-        
         displayPanel.removeAll();
         ArrayList<Event> eventsToDisplay;
         SaveEventToFile reader = new SaveEventToFile();
@@ -30,9 +29,9 @@ public class DisplayEvents {
             displayPanel.add(eventButton);
             eventButton.setText(eventsToDisplay.get(i).getTite());
             eventButton.setPreferredSize(new Dimension (100, 50));
-            eventButton.addActionListener(new ShowEvent(eventsToDisplay.get(i), displayPanel));
+            eventButton.addActionListener(new ShowEvent(eventsToDisplay.get(i), displayPanel, eventsToDisplay));
         }
         displayPanel.revalidate();
-        
+        displayPanel.repaint();
     }
 }
