@@ -8,7 +8,9 @@ package taskplanner;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
@@ -27,47 +29,50 @@ import javax.swing.*;
  *
  * @author Michał
  */
-public class addEventForm implements ActionListener {
+public class AddEventForm  implements ActionListener  {
     JFrame addEventForm = new JFrame();
     
     ArrayList<String> categoriesFromFile = this.readCategories();
     String[] categories = this.convertCategories(categoriesFromFile);
     
-    String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
+    String[] priorities = { "Wysoki", "Średni", "Niski" };
+    
     JComboBox category = new JComboBox(categories);
+    JComboBox priority = new JComboBox(priorities);
     JEditorPane description = new JEditorPane();
-    
-    
-    
-    
     JButton accept = new JButton("Ok");
     
-    
-    addEventForm()
+    AddEventForm()
     {
         addEventForm.setResizable(false);
-        addEventForm.setSize(500,100);
+        addEventForm.setSize(700,150);
         addEventForm.setVisible(true);
-        addEventForm.getContentPane().add(BorderLayout.WEST, category);
-        category.setPreferredSize(new Dimension(100, 100));
-
-        //Create the combo box, select the item at index 4.
-        //Indices start at 0, so 4 specifies the pig.
-        accept.addActionListener(this);
+        addEventForm.setLayout(new FlowLayout());
         
-        addEventForm.add(description, BorderLayout.CENTER);
+        addEventForm.add(category);
+        category.setPreferredSize(new Dimension(100, 100));
+        
+        addEventForm.add(priority);
+        priority.setPreferredSize(new Dimension(100, 100));
+        
+     
+        addEventForm.add(description);
         description.setPreferredSize(new Dimension(300,100));
         description.setForeground(Color.red);
-        
         Color bgColor = Color.LIGHT_GRAY;
         UIDefaults defaults = new UIDefaults();
         defaults.put("EditorPane[Enabled].backgroundPainter", bgColor);
         description.putClientProperty("Nimbus.Overrides", defaults);
         description.putClientProperty("Nimbus.Overrides.InheritDefaults", true);
         description.setBackground(bgColor);
+        
   
-        addEventForm.add(accept, BorderLayout.EAST);
+        addEventForm.add(accept);
         accept.setPreferredSize(new Dimension(100,100));
+        accept.addActionListener(this);
+        
+        addEventForm.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        
     }
 
     private ArrayList<String> readCategories(){
@@ -77,13 +82,13 @@ public class addEventForm implements ActionListener {
             content = new ObjectInputStream(new FileInputStream("Category.dat"));
             } catch(FileNotFoundException e){
                 } catch (IOException ex) {
-                    Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
                 }
         try{
         categoryContent = (ArrayList<String>) content.readObject();
             }catch (NullPointerException e){
                 } catch (ClassNotFoundException | IOException ex) {
-                Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
                 }
         
         return categoryContent;
@@ -99,11 +104,23 @@ public class addEventForm implements ActionListener {
             
     @Override
     public void actionPerformed(ActionEvent e) {
+        int priorityValue;
         String newEvent = description.getText();
         String categoryPicked = (String)category.getSelectedItem();
+        String priorityPicked = (String)priority.getSelectedItem();
+        
+        if ( priorityPicked == "Wysoki") {
+            priorityValue = 3;
+        } else if (priorityPicked == "Średni") {
+            priorityValue = 2;
+        } else {
+            priorityValue = 1;
+        }
+        
         System.out.print(categoryPicked);
-        saveEventToFile saveEvent = new saveEventToFile(newEvent, categoryPicked );
+        System.out.print(priorityValue);
+        SaveEventToFile saveEvent = new SaveEventToFile(newEvent, categoryPicked, priorityValue);
+        saveEvent.recordEvents();
         addEventForm.setVisible(false);
     }
-    
 }

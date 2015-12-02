@@ -11,23 +11,27 @@ import java.io.Serializable;
  *
  * @author Michał
  */
-public class event implements Serializable {
+public class Event implements Serializable {
     
-    private String event, category;
+    private String eventDescription, category;
+    int priority;
     private boolean done;
     
-    event(String event, String category){
-        this.event = event;
+    Event(String event, String category, int priority){
+        this.eventDescription = event;
         this.category = category;
+        this.priority = priority;
         this.done = false;
+        
+        System.out.println(this);
     }
 
-    public String getEvent() {
-        return event;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setEvent(String event) {
-        this.event = event;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 
     public String getCategory() {
@@ -45,5 +49,12 @@ public class event implements Serializable {
     public void setDone(boolean done) {
         this.done = done;
     }
-    
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
 }

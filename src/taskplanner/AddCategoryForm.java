@@ -20,14 +20,14 @@ import javax.swing.JFrame;
  *
  * @author Michał
  */
-public class addCategoryForm implements ActionListener  {
+public class AddCategoryForm implements ActionListener  {
     JFrame addCategoryForm = new JFrame();
     JEditorPane category = new JEditorPane();
     
     
     JButton accept = new JButton("Ok");
 
-    addCategoryForm(){
+    AddCategoryForm(){
         addCategoryForm.setResizable(false);
         addCategoryForm.setSize(500,100);
         addCategoryForm.setVisible(true);
@@ -42,11 +42,9 @@ public class addCategoryForm implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
         String newCategory = category.getText();
-        saveCategoryToFile saveCategory = new saveCategoryToFile(newCategory);
+        SaveCategoryToFile saveCategory = new SaveCategoryToFile(newCategory);
         addCategoryForm.setVisible(false);
         
     }
     
 }
-
-

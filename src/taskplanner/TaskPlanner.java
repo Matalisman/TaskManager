@@ -59,7 +59,7 @@ public class TaskPlanner extends javax.swing.JFrame {
         EventsPanel.setLayout(EventsPanelLayout);
         EventsPanelLayout.setHorizontalGroup(
             EventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         EventsPanelLayout.setVerticalGroup(
             EventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,15 +73,18 @@ public class TaskPlanner extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(287, 287, 287)
-                        .addComponent(addEvent))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(287, 287, 287)
+                                .addComponent(addEvent))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(addCategory)))
+                        .addGap(0, 334, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(addCategory))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(EventsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(EventsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,11 +102,11 @@ public class TaskPlanner extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEventActionPerformed
-              addEventForm addEventForm = new addEventForm();
+              AddEventForm addEventForm = new AddEventForm();
     }//GEN-LAST:event_addEventActionPerformed
 
     private void addCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCategoryActionPerformed
-            addCategoryForm addCategoryForm = new addCategoryForm();
+            AddCategoryForm addCategoryForm = new AddCategoryForm();
     }//GEN-LAST:event_addCategoryActionPerformed
 
     /**

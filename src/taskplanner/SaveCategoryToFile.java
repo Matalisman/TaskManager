@@ -21,9 +21,9 @@ import java.util.logging.Logger;
  *
  * @author Michał
  */
-public class saveCategoryToFile {
+public class SaveCategoryToFile {
     
-    saveCategoryToFile(String newCategory) {
+    SaveCategoryToFile(String newCategory) {
         
         ArrayList<String> categoryContent = new ArrayList();
         ObjectInputStream content=null ;
@@ -32,25 +32,25 @@ public class saveCategoryToFile {
             content = new ObjectInputStream(new FileInputStream("Category.dat"));
         } catch(FileNotFoundException e){
         } catch (IOException ex) {
-            Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
         }
         try{
         categoryContent = (ArrayList<String>) content.readObject();
         }catch (NullPointerException e){
         } catch (ClassNotFoundException | IOException ex) {
-            Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
         }
         categoryContent.add(newCategory);
         
         try {
             save = new ObjectOutputStream(new FileOutputStream("Category.dat"));
         } catch (IOException ex) {
-            Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             save.writeObject(categoryContent);
         } catch (IOException ex) {
-            Logger.getLogger(saveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SaveCategoryToFile.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
