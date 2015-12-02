@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Event implements Serializable {
     
-    private String eventDescription, category;
+    private String eventDescription, category, eventTitle;
     int priority;
     private boolean done;
     
@@ -21,6 +21,7 @@ public class Event implements Serializable {
         this.eventDescription = event;
         this.category = category;
         this.priority = priority;
+        this.eventTitle = this.setTitle(eventDescription);
         this.done = false;
         
         System.out.println(this);
@@ -56,5 +57,17 @@ public class Event implements Serializable {
 
     public void setPriority(int priority) {
         this.priority = priority;
+    }
+    
+    public String setTitle(String eventDescription){
+        try {eventTitle = eventDescription.substring(0,15);
+        } catch ( IndexOutOfBoundsException e ) {
+            eventTitle = eventDescription;
+        }
+        return eventTitle;
+    }
+    
+    public String getTite() {
+        return eventTitle;
     }
 }

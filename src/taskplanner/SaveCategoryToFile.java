@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Michał
+ * @author Mateusz Borysewicz
  */
 public class SaveCategoryToFile {
     

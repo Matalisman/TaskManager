@@ -36,8 +36,9 @@ public class SaveEventToFile {
    public void recordEvents(){
        ArrayList<Event> eventContent = this.readEventsFromFile();
        this.addNewEventToLists(event, category, priority, eventContent);
-       //this.sortEventsByHighestPriority(eventContent);
+       this.sortEventsByHighestPriority(eventContent);
        this.writeEventsToFile(eventContent);
+       this.displayPriorities(eventContent);
    }
         
     public ArrayList<Event> readEventsFromFile(){
@@ -83,5 +84,12 @@ public class SaveEventToFile {
     public void sortEventsByHighestPriority(ArrayList<Event> eventContent) {
             Collections.sort(eventContent, new SortEventsAscending());
     }
-   
+    
+    public void displayPriorities(ArrayList<Event> eventContent){
+        for (int i = 0; i<eventContent.size(); i++)
+        {
+            System.out.println(eventContent.get(i).getPriority());
+            
+        }
+    }
 }
