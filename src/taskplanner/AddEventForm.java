@@ -30,6 +30,8 @@ import javax.swing.*;
  * @author Michał
  */
 public class AddEventForm  implements ActionListener  {
+    
+    JPanel displayPanel;
     JFrame addEventForm = new JFrame();
     
     ArrayList<String> categoriesFromFile = this.readCategories();
@@ -42,8 +44,9 @@ public class AddEventForm  implements ActionListener  {
     JEditorPane description = new JEditorPane();
     JButton accept = new JButton("Ok");
     
-    AddEventForm()
+    AddEventForm(JPanel displayPanel)
     {
+        this.displayPanel = displayPanel;
         addEventForm.setResizable(false);
         addEventForm.setSize(700,150);
         addEventForm.setVisible(true);
@@ -121,6 +124,7 @@ public class AddEventForm  implements ActionListener  {
         System.out.print(priorityValue);
         SaveEventToFile saveEvent = new SaveEventToFile(newEvent, categoryPicked, priorityValue);
         saveEvent.recordEvents();
+        DisplayEvents refresher = new DisplayEvents(displayPanel);
         addEventForm.setVisible(false);
     }
 }

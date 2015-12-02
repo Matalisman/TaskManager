@@ -32,7 +32,10 @@ public class SaveEventToFile {
         this.category = category;
         this.priority = priority;
     }
-        
+    
+    SaveEventToFile() {
+    }
+    
    public void recordEvents(){
        ArrayList<Event> eventContent = this.readEventsFromFile();
        this.addNewEventToLists(event, category, priority, eventContent);
@@ -40,6 +43,8 @@ public class SaveEventToFile {
        this.writeEventsToFile(eventContent);
        this.displayPriorities(eventContent);
    }
+   
+   
         
     public ArrayList<Event> readEventsFromFile(){
         
