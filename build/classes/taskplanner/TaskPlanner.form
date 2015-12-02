@@ -75,18 +75,16 @@
     </Container>
     <Component class="javax.swing.JComboBox" name="sortList">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Wszystkie"/>
-            <StringItem index="1" value="Priorytet wysoki"/>
-            <StringItem index="2" value="Priorytet &#x15b;redni"/>
-            <StringItem index="3" value="Priorytet niski"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel(categories)" type="code"/>
         </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortListActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="SortCategories Sort = new SortCategories();&#xa;String[] categories = Sort.getCategories();"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="270" y="380" width="120" height="30"/>

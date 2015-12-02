@@ -28,6 +28,7 @@ public class ShowEvent implements ActionListener {
         JButton delete = new JButton("Usuń zadanie");      
         JButton editStatus = new JButton("Zakończ zadanie");
         private final ArrayList<Event> eventContent;
+        SaveEventToFile reader = new SaveEventToFile();
         
         ShowEvent(Event event, JPanel displayPanel, ArrayList<Event> eventContent){
             this.displayPanel = displayPanel;
@@ -71,6 +72,12 @@ public class ShowEvent implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             event.setDone(true);
+            editButtons.remove(editStatus);
+            editButtons.revalidate();
+            editButtons.repaint();
+            reader.writeEventsToFile(eventContent);
+            eventFrame.setVisible(false);
+            
         }
     }
     
@@ -78,8 +85,7 @@ public class ShowEvent implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            SaveEventToFile reader = new SaveEventToFile();
-            
+                        
             System.out.println();
             System.out.println(eventContent);
             System.out.println(event);

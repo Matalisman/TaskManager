@@ -65,7 +65,9 @@ public class TaskPlanner extends javax.swing.JFrame {
         DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
         getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 710, 320));
 
-        sortList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Priorytet wysoki", "Priorytet średni", "Priorytet niski" }));
+        SortCategories Sort = new SortCategories();
+        String[] categories = Sort.getCategories();
+        sortList.setModel(new javax.swing.DefaultComboBoxModel(categories));
         sortList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortListActionPerformed(evt);
