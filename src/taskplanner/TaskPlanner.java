@@ -36,6 +36,10 @@ public class TaskPlanner extends javax.swing.JFrame {
         addEvent = new javax.swing.JButton();
         addCategory = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
+        sortList = new javax.swing.JComboBox();
+        sortButton = new javax.swing.JButton();
+        sortList1 = new javax.swing.JComboBox();
+        sortList2 = new javax.swing.JComboBox();
 
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/xwing.jpg"))); // NOI18N
 
@@ -51,7 +55,7 @@ public class TaskPlanner extends javax.swing.JFrame {
         });
         getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
-        addCategory.setText("Add Category");
+        addCategory.setText("Dodaj kategorię");
         addCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCategoryActionPerformed(evt);
@@ -60,6 +64,33 @@ public class TaskPlanner extends javax.swing.JFrame {
         getContentPane().add(addCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 377, -1, 25));
         DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
         getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 710, 320));
+
+        sortList.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Priorytet wysoki", "Priorytet średni", "Priorytet niski" }));
+        sortList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortListActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sortList, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 120, 30));
+
+        sortButton.setText("Sortuj");
+        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, 30));
+
+        sortList1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
+        sortList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortList1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sortList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 120, 30));
+
+        sortList2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Priorytet wysoki", "Priorytet średni", "Priorytet niski" }));
+        sortList2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortList2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sortList2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 120, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,6 +102,18 @@ public class TaskPlanner extends javax.swing.JFrame {
     private void addCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCategoryActionPerformed
             AddCategoryForm addCategoryForm = new AddCategoryForm();
     }//GEN-LAST:event_addCategoryActionPerformed
+
+    private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortListActionPerformed
+
+    private void sortList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortList1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortList1ActionPerformed
+
+    private void sortList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortList2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortList2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,5 +156,9 @@ public class TaskPlanner extends javax.swing.JFrame {
     private javax.swing.JButton addEvent;
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JPanel displayPanel;
+    private javax.swing.JButton sortButton;
+    private javax.swing.JComboBox sortList;
+    private javax.swing.JComboBox sortList1;
+    private javax.swing.JComboBox sortList2;
     // End of variables declaration//GEN-END:variables
 }
