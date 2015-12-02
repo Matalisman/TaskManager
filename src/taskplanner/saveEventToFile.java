@@ -44,6 +44,8 @@ public class saveEventToFile {
         }
         eventContent.add(saveEvent);
         
+        //Tutaj dodac sortowanie 
+        
         try {
             save = new ObjectOutputStream(new FileOutputStream("Event.dat"));
         } catch (IOException ex) {
