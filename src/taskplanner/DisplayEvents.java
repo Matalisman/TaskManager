@@ -13,17 +13,33 @@ import javax.swing.*;
 
 /**
  *
- * @author Michał
+ * @author Mateusz Borysewicz
  */
 public class DisplayEvents {
     
+        JPanel displayPanel;
+        ArrayList<Event> eventsToDisplay = new ArrayList();
+    
     DisplayEvents(JPanel displayPanel)
     {
-        displayPanel.removeAll();
-        ArrayList<Event> eventsToDisplay;
         SaveEventToFile reader = new SaveEventToFile();
         eventsToDisplay = reader.readEventsFromFile();
-        System.out.print(eventsToDisplay);
+        
+        this.displayPanel = displayPanel;
+        this.showMainWindow();
+    }
+    
+    DisplayEvents(JPanel displayPanel, ArrayList<Event> eventsToDisplay)
+    {
+        this.displayPanel = displayPanel;
+        this.eventsToDisplay = eventsToDisplay;
+        
+        this.showMainWindow();
+    }
+    
+    private void showMainWindow(){
+        
+        displayPanel.removeAll();
         for (int i=0; i<eventsToDisplay.size(); i++) {
             JButton eventButton = new JButton();
             displayPanel.add(eventButton);

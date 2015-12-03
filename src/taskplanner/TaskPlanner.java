@@ -36,10 +36,10 @@ public class TaskPlanner extends javax.swing.JFrame {
         addEvent = new javax.swing.JButton();
         addCategory = new javax.swing.JButton();
         displayPanel = new javax.swing.JPanel();
-        sortList = new javax.swing.JComboBox();
+        selectCategory = new javax.swing.JComboBox();
         sortButton = new javax.swing.JButton();
-        sortList1 = new javax.swing.JComboBox();
-        sortList2 = new javax.swing.JComboBox();
+        showByStatus = new javax.swing.JComboBox();
+        sortPriority = new javax.swing.JComboBox();
 
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/xwing.jpg"))); // NOI18N
 
@@ -61,38 +61,43 @@ public class TaskPlanner extends javax.swing.JFrame {
                 addCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(addCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 377, -1, 25));
+        getContentPane().add(addCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 25));
         DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
-        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 710, 320));
+        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 320));
 
         SortCategories Sort = new SortCategories();
         String[] categories = Sort.getCategories();
-        sortList.setModel(new javax.swing.DefaultComboBoxModel(categories));
-        sortList.addActionListener(new java.awt.event.ActionListener() {
+        selectCategory.setModel(new javax.swing.DefaultComboBoxModel(categories));
+        selectCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortListActionPerformed(evt);
+                selectCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(sortList, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 120, 30));
+        getContentPane().add(selectCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 120, 30));
 
         sortButton.setText("Sortuj");
-        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, 30));
-
-        sortList1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
-        sortList1.addActionListener(new java.awt.event.ActionListener() {
+        sortButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortList1ActionPerformed(evt);
+                sortButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(sortList1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, 120, 30));
+        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, 30));
 
-        sortList2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Priorytet wysoki", "Priorytet średni", "Priorytet niski" }));
-        sortList2.addActionListener(new java.awt.event.ActionListener() {
+        showByStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
+        showByStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sortList2ActionPerformed(evt);
+                showByStatusActionPerformed(evt);
             }
         });
-        getContentPane().add(sortList2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 120, 30));
+        getContentPane().add(showByStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 450, 120, 30));
+
+        sortPriority.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Od najwyższego priorytetu", "Od najniższego priorytetu" }));
+        sortPriority.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortPriorityActionPerformed(evt);
+            }
+        });
+        getContentPane().add(sortPriority, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 160, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,20 +107,33 @@ public class TaskPlanner extends javax.swing.JFrame {
     }//GEN-LAST:event_addEventActionPerformed
 
     private void addCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCategoryActionPerformed
-            AddCategoryForm addCategoryForm = new AddCategoryForm();
+            AddCategoryForm addCategoryForm = new AddCategoryForm(selectCategory);
     }//GEN-LAST:event_addCategoryActionPerformed
 
-    private void sortListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortListActionPerformed
+    private void selectCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sortListActionPerformed
+    }//GEN-LAST:event_selectCategoryActionPerformed
 
-    private void sortList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortList1ActionPerformed
+    private void showByStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showByStatusActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sortList1ActionPerformed
+    }//GEN-LAST:event_showByStatusActionPerformed
 
-    private void sortList2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortList2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sortList2ActionPerformed
+    private void sortPriorityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortPriorityActionPerformed
+        // TODO add your handling code hString newEvent = description.getText();
+     
+    }//GEN-LAST:event_sortPriorityActionPerformed
+
+    private void sortButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortButtonActionPerformed
+        // String newEvent = description.getText();
+        String selectedCategory = (String)selectCategory.getSelectedItem();
+        String sortedPriority = (String)sortPriority.getSelectedItem();
+        String showedStatus = (String)showByStatus.getSelectedItem();
+        
+        PickEvents picker = new PickEvents(selectedCategory, sortedPriority, showedStatus);
+        
+        DisplayEvents refreshWindow = new DisplayEvents(displayPanel, picker.sort());
+        
+    }//GEN-LAST:event_sortButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,9 +176,9 @@ public class TaskPlanner extends javax.swing.JFrame {
     private javax.swing.JButton addEvent;
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JPanel displayPanel;
+    private javax.swing.JComboBox selectCategory;
+    private javax.swing.JComboBox showByStatus;
     private javax.swing.JButton sortButton;
-    private javax.swing.JComboBox sortList;
-    private javax.swing.JComboBox sortList1;
-    private javax.swing.JComboBox sortList2;
+    private javax.swing.JComboBox sortPriority;
     // End of variables declaration//GEN-END:variables
 }

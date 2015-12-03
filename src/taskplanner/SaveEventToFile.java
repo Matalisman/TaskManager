@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Michał
+ * @author Mateusz
  */
 public class SaveEventToFile {
     
@@ -88,6 +88,10 @@ public class SaveEventToFile {
     
     public void sortEventsByHighestPriority(ArrayList<Event> eventContent) {
             Collections.sort(eventContent, new SortEventsAscending());
+    }
+    
+    public void sortEventsByLowestPriority(ArrayList<Event> eventContent) {
+            Collections.sort(eventContent, new SortEventsDescending());
     }
     
     public void displayPriorities(ArrayList<Event> eventContent){

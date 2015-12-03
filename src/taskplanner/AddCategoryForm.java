@@ -13,8 +13,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,11 +25,12 @@ import javax.swing.JFrame;
 public class AddCategoryForm implements ActionListener  {
     JFrame addCategoryForm = new JFrame();
     JEditorPane category = new JEditorPane();
-    
+    JComboBox selectCategory;
     
     JButton accept = new JButton("Ok");
 
-    AddCategoryForm(){
+    AddCategoryForm(JComboBox selectCategory){
+        this.selectCategory = selectCategory;
         addCategoryForm.setResizable(false);
         addCategoryForm.setSize(500,100);
         addCategoryForm.setVisible(true);
@@ -43,6 +46,9 @@ public class AddCategoryForm implements ActionListener  {
     public void actionPerformed(ActionEvent e) {
         String newCategory = category.getText();
         SaveCategoryToFile saveCategory = new SaveCategoryToFile(newCategory);
+        selectCategory.addItem(newCategory);
+        selectCategory.revalidate();
+        selectCategory.repaint();
         addCategoryForm.setVisible(false);
         
     }
