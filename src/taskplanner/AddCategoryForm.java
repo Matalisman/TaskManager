@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.*;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -25,14 +26,15 @@ public class AddCategoryForm implements ActionListener  {
     JFrame addCategoryForm = new JFrame();
     JEditorPane category = new JEditorPane();
     
-    
-    
     JComboBox selectCategory;
     
     JButton accept = new JButton("Ok");
 
     AddCategoryForm(JComboBox selectCategory){
         this.selectCategory = selectCategory;
+        
+        addCategoryForm.setTitle("Dodaj kategorię");
+        RefineryUtilities.positionFrameOnScreen(addCategoryForm, 0.15, 0.59);
         addCategoryForm.setResizable(false);
         addCategoryForm.setSize(500,100);
         addCategoryForm.setVisible(true);
@@ -41,7 +43,7 @@ public class AddCategoryForm implements ActionListener  {
         addCategoryForm.add(category);
         category.setPreferredSize(new Dimension(300,100));
         category.setForeground(Color.red);
-        Color bgColor = Color.LIGHT_GRAY;
+        Color bgColor = Color.darkGray;
         UIDefaults defaults = new UIDefaults();
         defaults.put("EditorPane[Enabled].backgroundPainter", bgColor);
         category.putClientProperty("Nimbus.Overrides", defaults);
@@ -68,7 +70,7 @@ public class AddCategoryForm implements ActionListener  {
         
         if(validate.toCharArray().length<1) {
         JOptionPane.showMessageDialog(addCategoryForm,
-        "Wydarzenie musi posiadać opis!",
+        "Kategoria nie może być pusta!",
         "Pomyśl, co wpisujesz",
         JOptionPane.ERROR_MESSAGE);
         canBeSaved = false;

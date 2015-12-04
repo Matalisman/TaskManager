@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package taskplanner;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -24,9 +26,11 @@ public class StatisticsFrame
       f.setTitle(title);
       RefineryUtilities.positionFrameOnScreen(f, 0.25, 0.25);
       f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      f.setSize(new Dimension (400,400));
+      f.setSize(new Dimension (600,500));
       f.setVisible(true);
+     
       f.setContentPane(this.createPanel());
+      
       
    }
    
@@ -34,6 +38,7 @@ public class StatisticsFrame
    {
       SaveEventToFile reader = new SaveEventToFile();
       ArrayList<Event> eventList = reader.readEventsFromFile();
+      
       int doneCounter=0;
       for (int i=0; i<eventList.size() ; i++) {
             if (eventList.get(i).isDone()) {
@@ -52,7 +57,7 @@ public class StatisticsFrame
       JFreeChart chart = ChartFactory.createPieChart(      
          "Wykonane / Niewykonane ",  // chart title 
          dataset,        // data    
-         true,           // include legend   
+         false,           // include legend   
          true, 
          false);
       

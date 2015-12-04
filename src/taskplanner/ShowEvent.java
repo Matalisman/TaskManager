@@ -6,6 +6,8 @@
 package taskplanner;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -44,6 +46,9 @@ public class ShowEvent implements ActionListener {
         eventFrame.setResizable(false);
         
         title.setText(event.getTite());
+        title.setForeground(Color.RED);
+        title.setFont(new Font("Courier New", Font.HANGING_BASELINE, 30));
+       
         eventFrame.getContentPane().add(title, BorderLayout.NORTH);
         
         eventFrame.add(editButtons, BorderLayout.SOUTH);
@@ -62,6 +67,8 @@ public class ShowEvent implements ActionListener {
        
         
         description.setText(event.getEventDescription());
+        description.setFont(new Font("Courier New", Font.PLAIN, 12));
+        
         eventFrame.add(description);
         
         eventFrame.setVisible(true);

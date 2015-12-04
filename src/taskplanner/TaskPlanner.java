@@ -5,10 +5,15 @@
  */
 package taskplanner;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import org.jfree.ui.RefineryUtilities;
 
 /**
@@ -36,12 +41,13 @@ public class TaskPlanner extends javax.swing.JFrame {
         backgroundImage = new javax.swing.JLabel();
         addEvent = new javax.swing.JButton();
         addCategory = new javax.swing.JButton();
-        displayPanel = new javax.swing.JPanel();
         selectCategory = new javax.swing.JComboBox();
         sortButton = new javax.swing.JButton();
+        displayPanel = new javax.swing.JPanel();
         showByStatus = new javax.swing.JComboBox();
         sortPriority = new javax.swing.JComboBox();
         ciastkowyGuzik = new javax.swing.JButton();
+        backGroundImage = new javax.swing.JLabel();
 
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/xwing.jpg"))); // NOI18N
 
@@ -57,7 +63,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 addEventActionPerformed(evt);
             }
         });
-        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
+        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 360, 40));
 
         addCategory.setText("Dodaj kategorię");
         addCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -65,9 +71,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 addCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(addCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, 25));
-        DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
-        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 320));
+        getContentPane().add(addCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, -1, 25));
 
         SortCategories Sort = new SortCategories();
         String[] categories = Sort.getCategories();
@@ -87,6 +91,12 @@ public class TaskPlanner extends javax.swing.JFrame {
         });
         getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, -1, 30));
 
+        displayPanel.setBackground(new Color(213, 134, 145, 123));
+        displayPanel.setForeground(new java.awt.Color(255, 0, 0));
+        displayPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
+        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 320));
+
         showByStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
         showByStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +113,8 @@ public class TaskPlanner extends javax.swing.JFrame {
         });
         getContentPane().add(sortPriority, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 160, 30));
 
+        ciastkowyGuzik.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        ciastkowyGuzik.setForeground(new java.awt.Color(255, 0, 0));
         ciastkowyGuzik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/Statystyki.png"))); // NOI18N
         ciastkowyGuzik.setText("Statystyki");
         ciastkowyGuzik.setContentAreaFilled(false);
@@ -111,7 +123,10 @@ public class TaskPlanner extends javax.swing.JFrame {
                 ciastkowyGuzikActionPerformed(evt);
             }
         });
-        getContentPane().add(ciastkowyGuzik, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, 190, 90));
+        getContentPane().add(ciastkowyGuzik, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 220, 90));
+
+        backGroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/background.jpg"))); // NOI18N
+        getContentPane().add(backGroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,8 +165,20 @@ public class TaskPlanner extends javax.swing.JFrame {
     }//GEN-LAST:event_sortButtonActionPerformed
 
     private void ciastkowyGuzikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciastkowyGuzikActionPerformed
+        
+        SaveEventToFile reader = new SaveEventToFile(); 
+        ArrayList<Event> eventList = reader.readEventsFromFile();
+        boolean displayStatistics = true;
+        if(eventList.isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+            "Brak wydarzeń!", 
+            "Nie zawiedź mnie ponownie, admirale. ",           
+            JOptionPane.ERROR_MESSAGE);
+            displayStatistics = false;
+        }
+        if (displayStatistics){
             StatisticsFrame statistics = new StatisticsFrame( "Statystyki zadań" );  
-            
+        }
     }//GEN-LAST:event_ciastkowyGuzikActionPerformed
 
     /**
@@ -193,6 +220,7 @@ public class TaskPlanner extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addCategory;
     private javax.swing.JButton addEvent;
+    private javax.swing.JLabel backGroundImage;
     private javax.swing.JLabel backgroundImage;
     private javax.swing.JButton ciastkowyGuzik;
     private javax.swing.JPanel displayPanel;

@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
+import org.jfree.ui.RefineryUtilities;
 
 
 /**
@@ -46,9 +48,14 @@ public class AddEventForm  implements ActionListener  {
     
     AddEventForm(JPanel displayPanel)
     {
+        
+        RefineryUtilities.positionFrameOnScreen(addEventForm, 0.1, 0.25);
         this.displayPanel = displayPanel;
+        
+        addEventForm.setTitle("Dodaj wydarzenie");
         addEventForm.setResizable(false);
         addEventForm.setSize(700,150);
+        
         addEventForm.setVisible(true);
         addEventForm.setLayout(new FlowLayout());
         
@@ -142,7 +149,8 @@ public class AddEventForm  implements ActionListener  {
         SaveEventToFile saveEvent = new SaveEventToFile(newEvent, categoryPicked, priorityValue);
         saveEvent.recordEvents();
         DisplayEvents refresher = new DisplayEvents(displayPanel);
-        addEventForm.setVisible(false);
+        addEventForm.dispatchEvent(new WindowEvent(addEventForm, WindowEvent.WINDOW_CLOSING));
+        
     }
     }
 }
