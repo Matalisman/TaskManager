@@ -77,7 +77,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 selectCategoryActionPerformed(evt);
             }
         });
-        getContentPane().add(selectCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 120, 30));
+        getContentPane().add(selectCategory, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 120, 30));
 
         sortButton.setText("Sortuj");
         sortButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 sortButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, 30));
+        getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, -1, 30));
 
         showByStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
         showByStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 showByStatusActionPerformed(evt);
             }
         });
-        getContentPane().add(showByStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, 120, 30));
+        getContentPane().add(showByStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 450, 120, 30));
 
         sortPriority.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Od najwyższego priorytetu", "Od najniższego priorytetu" }));
         sortPriority.addActionListener(new java.awt.event.ActionListener() {
@@ -101,15 +101,17 @@ public class TaskPlanner extends javax.swing.JFrame {
                 sortPriorityActionPerformed(evt);
             }
         });
-        getContentPane().add(sortPriority, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, 160, 30));
+        getContentPane().add(sortPriority, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 160, 30));
 
+        ciastkowyGuzik.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/Statystyki.png"))); // NOI18N
         ciastkowyGuzik.setText("Statystyki");
+        ciastkowyGuzik.setContentAreaFilled(false);
         ciastkowyGuzik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ciastkowyGuzikActionPerformed(evt);
             }
         });
-        getContentPane().add(ciastkowyGuzik, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 110, 90));
+        getContentPane().add(ciastkowyGuzik, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 400, 190, 90));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

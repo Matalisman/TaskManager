@@ -108,7 +108,24 @@ public class AddEventForm  implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
         int priorityValue;
+        boolean canBeSaved = true;
+        
         String newEvent = description.getText();
+        
+        String validate = newEvent;
+        validate = newEvent.replaceAll(" ", "");
+        validate = validate.replaceAll("\t", "");
+        
+        if(validate.toCharArray().length<1) {
+        JOptionPane.showMessageDialog(addEventForm,
+        "Wydarzenie musi posiadać opis!",
+        "Pomyśl, co wpisujesz",
+        JOptionPane.ERROR_MESSAGE);
+        canBeSaved = false;
+        }
+        
+        
+        if (canBeSaved) {
         String categoryPicked = (String)category.getSelectedItem();
         String priorityPicked = (String)priority.getSelectedItem();
         
@@ -126,5 +143,6 @@ public class AddEventForm  implements ActionListener  {
         saveEvent.recordEvents();
         DisplayEvents refresher = new DisplayEvents(displayPanel);
         addEventForm.setVisible(false);
+    }
     }
 }
