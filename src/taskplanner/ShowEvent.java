@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -25,7 +26,8 @@ public class ShowEvent implements ActionListener {
         Event event;
         JFrame eventFrame = new JFrame("Edytuj wydarzenie");
         JPanel displayPanel;
-        JLabel title = new JLabel(), description = new JLabel();
+        JLabel title = new JLabel(); 
+        JTextArea description = new JTextArea();
         JPanel editButtons = new JPanel();
         JButton delete = new JButton("Usuń zadanie");      
         JButton editStatus = new JButton("Zakończ zadanie");
@@ -46,7 +48,6 @@ public class ShowEvent implements ActionListener {
         eventFrame.setResizable(false);
         
         title.setText(event.getTite());
-        title.setForeground(Color.RED);
         title.setFont(new Font("Courier New", Font.HANGING_BASELINE, 30));
        
         eventFrame.getContentPane().add(title, BorderLayout.NORTH);
@@ -64,13 +65,16 @@ public class ShowEvent implements ActionListener {
         editButtons.add(delete);
         delete.addActionListener(new DeleteEvent());
         
-       
-        
         description.setText(event.getEventDescription());
         description.setFont(new Font("Courier New", Font.PLAIN, 12));
+        description.setEditable(false);
+        description.setLineWrap(true);
+        description.setBackground(Color.DARK_GRAY);
+        
+        description.setForeground(Color.RED);
         
         eventFrame.add(description);
-        
+              
         eventFrame.setVisible(true);
     }
     

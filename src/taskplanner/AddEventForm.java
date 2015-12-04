@@ -149,7 +149,7 @@ public class AddEventForm  implements ActionListener  {
         SaveEventToFile saveEvent = new SaveEventToFile(newEvent, categoryPicked, priorityValue);
         saveEvent.recordEvents();
         DisplayEvents refresher = new DisplayEvents(displayPanel);
-        addEventForm.dispatchEvent(new WindowEvent(addEventForm, WindowEvent.WINDOW_CLOSING));
+        addEventForm.dispose();
         
     }
     }

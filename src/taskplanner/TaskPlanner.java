@@ -7,6 +7,7 @@ package taskplanner;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -63,7 +64,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 addEventActionPerformed(evt);
             }
         });
-        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 360, 40));
+        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 470, 40));
 
         addCategory.setText("Dodaj kategorię");
         addCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +92,9 @@ public class TaskPlanner extends javax.swing.JFrame {
         });
         getContentPane().add(sortButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 450, -1, 30));
 
-        displayPanel.setBackground(new Color(213, 134, 145, 123));
         displayPanel.setForeground(new java.awt.Color(255, 0, 0));
         displayPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        displayPanel.setOpaque(false);
         DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
         getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 320));
 
@@ -133,6 +134,7 @@ public class TaskPlanner extends javax.swing.JFrame {
 
     private void addEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEventActionPerformed
               AddEventForm addEventForm = new AddEventForm(displayPanel);
+            
     }//GEN-LAST:event_addEventActionPerformed
 
     private void addCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCategoryActionPerformed

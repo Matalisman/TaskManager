@@ -5,6 +5,7 @@
  */
 package taskplanner;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +23,7 @@ public class DisplayEvents {
     
     DisplayEvents(JPanel displayPanel)
     {
+        
         SaveEventToFile reader = new SaveEventToFile();
         eventsToDisplay = reader.readEventsFromFile();
         
