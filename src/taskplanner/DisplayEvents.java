@@ -44,9 +44,21 @@ public class DisplayEvents {
         displayPanel.removeAll();
         for (int i=0; i<eventsToDisplay.size(); i++) {
             JButton eventButton = new JButton();
+            
+            if(eventsToDisplay.get(i).getPriority()==3){
+                    eventButton.setBackground(Color.red);
+                }
+            if(eventsToDisplay.get(i).getPriority()==2){
+                    eventButton.setBackground(Color.orange);
+                }
+            if(eventsToDisplay.get(i).getPriority()==1){
+                    eventButton.setBackground(Color.yellow);
+                }
+                        
             displayPanel.add(eventButton);
             eventButton.setText(eventsToDisplay.get(i).getTite());
             eventButton.setPreferredSize(new Dimension (100, 50));
+            
             eventButton.addActionListener(new ShowEvent(eventsToDisplay.get(i), displayPanel, eventsToDisplay));
         }
         displayPanel.revalidate();
