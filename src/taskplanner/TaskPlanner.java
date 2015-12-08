@@ -39,7 +39,6 @@ public class TaskPlanner extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backgroundImage = new javax.swing.JLabel();
         addEvent = new javax.swing.JButton();
         addCategory = new javax.swing.JButton();
         selectCategory = new javax.swing.JComboBox();
@@ -49,8 +48,6 @@ public class TaskPlanner extends javax.swing.JFrame {
         sortPriority = new javax.swing.JComboBox();
         ciastkowyGuzik = new javax.swing.JButton();
         backGroundImage = new javax.swing.JLabel();
-
-        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/xwing.jpg"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -96,7 +93,7 @@ public class TaskPlanner extends javax.swing.JFrame {
         displayPanel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         displayPanel.setOpaque(false);
         DisplayEvents eventsDisplayer = new DisplayEvents(displayPanel);
-        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 320));
+        getContentPane().add(displayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 820, 330));
 
         showByStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Wszystkie", "Niezakończone", "Zakończone" }));
         showByStatus.addActionListener(new java.awt.event.ActionListener() {
@@ -223,7 +220,6 @@ public class TaskPlanner extends javax.swing.JFrame {
     private javax.swing.JButton addCategory;
     private javax.swing.JButton addEvent;
     private javax.swing.JLabel backGroundImage;
-    private javax.swing.JLabel backgroundImage;
     private javax.swing.JButton ciastkowyGuzik;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JComboBox selectCategory;
