@@ -23,16 +23,16 @@ import javax.swing.JTextArea;
  */
 public class ShowEvent implements ActionListener {
     
-        Event event;
-        JFrame eventFrame = new JFrame("Edytuj wydarzenie");
-        JPanel displayPanel;
-        JLabel title = new JLabel(); 
-        JTextArea description = new JTextArea();
-        JPanel editButtons = new JPanel();
-        JButton delete = new JButton("Usuń zadanie");      
-        JButton editStatus = new JButton("Zakończ zadanie");
-        private final ArrayList<Event> eventContent;
-        SaveEventToFile reader = new SaveEventToFile();
+       private Event event;
+       private JFrame eventFrame = new JFrame("Edytuj wydarzenie");
+       private JPanel displayPanel;
+       private JLabel title = new JLabel(); 
+       private JTextArea description = new JTextArea();
+       private JPanel editButtons = new JPanel();
+       private JButton delete = new JButton("Usuń zadanie");      
+       private JButton editStatus = new JButton("Zakończ zadanie");
+       private final ArrayList<Event> eventContent;
+       private EventManager reader = new EventManager();
         
         ShowEvent(Event event, JPanel displayPanel, ArrayList<Event> eventContent){
             this.displayPanel = displayPanel;

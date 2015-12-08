@@ -23,12 +23,13 @@ import org.jfree.ui.RefineryUtilities;
  * @author Mateusz Borysewicz
  */
 public class AddCategoryForm implements ActionListener  {
-    JFrame addCategoryForm = new JFrame();
-    JEditorPane category = new JEditorPane();
     
-    JComboBox selectCategory;
+    private final JFrame addCategoryForm = new JFrame();
+    private final JEditorPane category = new JEditorPane();
     
-    JButton accept = new JButton("Ok");
+    private final JComboBox selectCategory;
+    
+    private final JButton accept = new JButton("Ok");
 
     AddCategoryForm(JComboBox selectCategory){
         this.selectCategory = selectCategory;

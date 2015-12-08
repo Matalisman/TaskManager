@@ -38,7 +38,7 @@ public class PickEvents {
     
     ArrayList<Event> sort() {
        
-        SaveEventToFile reader = new SaveEventToFile();
+        EventManager reader = new EventManager();
         ArrayList<Event> eventList = reader.readEventsFromFile();
         
         for (int i=0; i<eventList.size() ; i++) {

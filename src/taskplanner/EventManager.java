@@ -22,18 +22,18 @@ import java.util.logging.Logger;
  *
  * @author Mateusz
  */
-public class SaveEventToFile {
+public class EventManager {
     
     private String event, category;
     int priority;
     
-    SaveEventToFile(String newEvent, String category, int priority) {
+    EventManager(String newEvent, String category, int priority) {
         this.event = newEvent;
         this.category = category;
         this.priority = priority;
     }
     
-    SaveEventToFile() {
+    EventManager() {
     }
     
    public void recordEvents(){
@@ -55,13 +55,13 @@ public class SaveEventToFile {
                 eventsSavedInFile = new ObjectInputStream(new FileInputStream("Event.dat"));
             } catch (FileNotFoundException e) {
                     } catch (IOException ex) {
-                        Logger.getLogger(SaveEventToFile.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
                     }
             try {
                 eventContent = (ArrayList<Event>) eventsSavedInFile.readObject();
             } catch (NullPointerException e) {
                 } catch (ClassNotFoundException | IOException ex) {
-                        Logger.getLogger(SaveEventToFile.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
             }
             
         return eventContent;
@@ -72,12 +72,12 @@ public class SaveEventToFile {
         try {
             saveNewEvents = new ObjectOutputStream(new FileOutputStream("Event.dat"));
         } catch (IOException ex) {
-            Logger.getLogger(SaveEventToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             saveNewEvents.writeObject(eventContent);
         } catch (IOException ex) {
-            Logger.getLogger(SaveEventToFile.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EventManager.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }
     

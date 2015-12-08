@@ -3,10 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Michał/Desktop/Java/TaskPlanner/src/taskplanner/addCategoryForm.java</file>
-            <file>file:/C:/Users/Michał/Desktop/Java/TaskPlanner/src/taskplanner/TaskPlanner.java</file>
-            <file>file:/C:/Users/Michał/Desktop/Java/TaskPlanner/src/taskplanner/event.java</file>
-            <file>file:/C:/Users/Michał/Desktop/Java/TaskPlanner/src/taskplanner/saveEventToFile.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/AddCategoryForm.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/ShowEvent.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/PickEvents.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/Event.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/SaveCategoryToFile.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/SortEventsDescending.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/StatisticsFrame.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/AddEventForm.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/DisplayEvents.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/EventManager.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/SortEventsAscending.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/background.jpg</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/SortCategories.java</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/Statystyki.png</file>
+            <file>file:/C:/Users/pc109/Desktop/J/TaskManager/src/taskplanner/TaskPlanner.java</file>
         </group>
     </open-files>
 </project-private>

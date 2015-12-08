@@ -61,7 +61,7 @@ public class TaskPlanner extends javax.swing.JFrame {
                 addEventActionPerformed(evt);
             }
         });
-        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 470, 40));
+        getContentPane().add(addEvent, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 470, 40));
 
         addCategory.setText("Dodaj kategorię");
         addCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class TaskPlanner extends javax.swing.JFrame {
         getContentPane().add(ciastkowyGuzik, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 220, 90));
 
         backGroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taskplanner/background.jpg"))); // NOI18N
-        getContentPane().add(backGroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 500));
+        getContentPane().add(backGroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -165,7 +165,7 @@ public class TaskPlanner extends javax.swing.JFrame {
 
     private void ciastkowyGuzikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ciastkowyGuzikActionPerformed
         
-        SaveEventToFile reader = new SaveEventToFile(); 
+        EventManager reader = new EventManager(); 
         ArrayList<Event> eventList = reader.readEventsFromFile();
         boolean displayStatistics = true;
         if(eventList.isEmpty()) {

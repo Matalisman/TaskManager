@@ -18,13 +18,13 @@ import javax.swing.*;
  */
 public class DisplayEvents {
     
-        JPanel displayPanel;
-        ArrayList<Event> eventsToDisplay = new ArrayList();
+      private final  JPanel displayPanel;
+      private ArrayList<Event> eventsToDisplay = new ArrayList();
     
     DisplayEvents(JPanel displayPanel)
     {
         
-        SaveEventToFile reader = new SaveEventToFile();
+        EventManager reader = new EventManager();
         eventsToDisplay = reader.readEventsFromFile();
         
         this.displayPanel = displayPanel;

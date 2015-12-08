@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Event implements Serializable {
     
     private String eventDescription, category, eventTitle;
-    int priority;
+    private int priority;
     private boolean done;
     
     Event(String event, String category, int priority){

@@ -33,18 +33,18 @@ import org.jfree.ui.RefineryUtilities;
  */
 public class AddEventForm  implements ActionListener  {
     
-    JPanel displayPanel;
-    JFrame addEventForm = new JFrame();
+    private final JPanel displayPanel;
+    private final JFrame addEventForm = new JFrame();
     
-    ArrayList<String> categoriesFromFile = this.readCategories();
-    String[] categories = this.convertCategories(categoriesFromFile);
+    private final ArrayList<String> categoriesFromFile = this.readCategories();
+    private final String[] categories = this.convertCategories(categoriesFromFile);
     
-    String[] priorities = { "Wysoki", "Średni", "Niski" };
+    private final String[] priorities = { "Wysoki", "Średni", "Niski" };
     
-    JComboBox category = new JComboBox(categories);
-    JComboBox priority = new JComboBox(priorities);
-    JEditorPane description = new JEditorPane();
-    JButton accept = new JButton("Ok");
+    private final JComboBox category = new JComboBox(categories);
+    private final JComboBox priority = new JComboBox(priorities);
+    private final JEditorPane description = new JEditorPane();
+    private final JButton accept = new JButton("Ok");
     
     AddEventForm(JPanel displayPanel)
     {
@@ -146,7 +146,7 @@ public class AddEventForm  implements ActionListener  {
         
         System.out.print(categoryPicked);
         System.out.print(priorityValue);
-        SaveEventToFile saveEvent = new SaveEventToFile(newEvent, categoryPicked, priorityValue);
+        EventManager saveEvent = new EventManager(newEvent, categoryPicked, priorityValue);
         saveEvent.recordEvents();
         DisplayEvents refresher = new DisplayEvents(displayPanel);
         addEventForm.dispose();

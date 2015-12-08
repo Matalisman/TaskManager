@@ -36,7 +36,7 @@ public class StatisticsFrame
    
    private static PieDataset createDataset( ) 
    {
-      SaveEventToFile reader = new SaveEventToFile();
+      EventManager reader = new EventManager();
       ArrayList<Event> eventList = reader.readEventsFromFile();
       
       int doneCounter=0;
